@@ -12,5 +12,8 @@ To use the generator, you can hit the "Over here for your password" button which
 ![password generator page with alert asking for number of characters](./Assets/screenshot1.png)
 ![password generator page showing a random generated password](./Assets/screenshot2.png)
 
+## Link
+Here is a link to Genny: 
+
 
 
