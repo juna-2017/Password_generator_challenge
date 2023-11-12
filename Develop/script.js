@@ -34,24 +34,22 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-// Starts function to generate the password
-// function generatePassword(){
-  // This is asking for user input in order to assign variable "passwordLength"
+// This function sets the length of the password, making sure that a number is inputted and it falls between 8 and 128. It is also set to run if a number less than 8 or greater than 128 is inputted
 function setLength(){ 
   var passwordLength = window.prompt("What is your password desired length? Has to be a minimum of 8 characters, and no more than 128 characters");
   console.log("Password length: " + passwordLength);
-
+// If nothing is inputted alert will show "required value" and initial prompt will appear
   if(!passwordLength) {
     window.alert("Required value!");
     return setLength();
-// sets parameters of password length. Has to be greater than 8 but less than 128 characters. If nothing is inputted alert will show "required value" and initial prompt will appear
+// sets parameters of password length. Has to be greater than 8 but less than 128 characters. 
   } else if(passwordLength < 8 || passwordLength > 128){
     window.alert("Password lengths needs to be between 8 and 128 characters!");
     return setLength();
   }
   return passwordLength;
 }
-// asks and confirms if you want lowercase, uppercase, numbers, and special characters in this password
+// This function generates the password; asking if you want lower/upper case letters, numbers, and/or special characters.
 function generatePassword(){
     var passwordLength = setLength();
     
