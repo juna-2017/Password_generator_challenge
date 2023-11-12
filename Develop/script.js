@@ -35,21 +35,26 @@ generateBtn.addEventListener("click", writePassword);
 
 
 // Starts function to generate the password
-function generatePassword(){
+// function generatePassword(){
   // This is asking for user input in order to assign variable "passwordLength"
- 
+function setLength(){ 
   var passwordLength = window.prompt("What is your password desired length? Has to be a minimum of 8 characters, and no more than 128 characters");
   console.log("Password length: " + passwordLength);
 
   if(!passwordLength) {
     window.alert("Required value!");
-// sets parameters of password length. Has to be greater than 8 but less than 128 characters. If nothing is inputted alert will show "required value"
+    return setLength();
+// sets parameters of password length. Has to be greater than 8 but less than 128 characters. If nothing is inputted alert will show "required value" and initial prompt will appear
   } else if(passwordLength < 8 || passwordLength > 128){
-    passwordLength = window.prompt("You must choose a number between 8 and 128 characters.");
-    console.log("Password length: " + passwordLength);
-
+    window.alert("Password lengths needs to be between 8 and 128 characters!");
+    return setLength();
+  }
+  return passwordLength;
+}
 // asks and confirms if you want lowercase, uppercase, numbers, and special characters in this password
-  } else{
+function generatePassword(){
+    var passwordLength = setLength();
+    
     checkLowercase = window.confirm("Do you want lower case letters?");
     console.log("Lower case: " + checkLowercase);
 
@@ -61,11 +66,12 @@ function generatePassword(){
 
     checkSpecialCharacters = window.confirm("Do you want special characters?");
     console.log("Special characters: " + checkSpecialCharacters);
-  };
 
 // If there is no user input to all 4 criteria, alert will tell you, you need to choose 
   if(!checkLowercase && !checkUppercase && !checkNumbers && !checkSpecialCharacters){
     userChoices = window.alert("You must choose at least one criteria!");
+  generatePassword();
+
 // if all 4 options were chosen or true
   } else if(checkLowercase && checkUppercase && checkNumbers && checkSpecialCharacters){
     userChoices = lowerCase.concat(upperCase, numbers, specialCharacters);
@@ -132,4 +138,17 @@ function generatePassword(){
   }
 
 
+// Empty variable for the password length
+var blankPassword = [];
+
+// For loop that creates random selection  
+  for (var i = 0; i < passwordLength; i++){
+    var choices = userChoices[Math.floor(Math.random() * userChoices.length)];
+    blankPassword.push(choices);
+    console.log(choices);
+  }
+  
+  // Creates and returns the password
+  var password = blankPassword.join("");
+  return password;
 }
