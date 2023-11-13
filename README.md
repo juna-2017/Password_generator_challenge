@@ -13,7 +13,7 @@ To use the generator, you can hit the "Over here for your password" button which
 ![password generator page showing a random generated password](./Assets/screenshot2.png)
 
 ## Link
-Here is a link to Genny: 
+Here is a link to Genny: https://juna-2017.github.io/Password_generator_challenge/
 
 
 
